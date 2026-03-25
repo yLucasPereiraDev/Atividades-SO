@@ -1,12 +1,30 @@
-n1: int = 0
+num = 0
+tipo = 0
 
-n1 = int(input("Digite o valor do primeiro número: "))
+def entrada():
+    global num
+    num = int(input("Digite um número: "))
 
-if (n1 % 2 == 0) and (n1 % 3 == 0):
+def processamento():
+    global num, tipo
+    if num % 2 == 0 and num % 3 == 0:
+        tipo = 1
+    else:
+        tipo = 2
 
-    print("Seu valor é divisivel tanto por 2, quanto por 3!")
-else:
-    print("Seu valor não é divisivel por ambos, tente novamente!")
+def saida():
+    global tipo
+    if tipo == 1:
+        print("É divisível por 2 e por 3.")
+    else:
+        print("Não é divisível por 2 e por 3.")
+
+def main():
+    entrada()
+    processamento()
+    saida()
+
+main()
 
 
 

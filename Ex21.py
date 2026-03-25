@@ -1,15 +1,42 @@
-nota1 = float(input("Digite a nota do primeito bimestre do aluno: "))
-nota2 = float(input("Digite a nota do segundo bimestre do aluno: "))
-nota3 = float(input("Digite a nota do terceiro bimestre do aluno: "))
-nota4 = float(input("Digite a nota do quarto bimestre do aluno: "))
+n1 = 0
+n2 = 0
+n3 = 0
+n4 = 0
+media = 0
+tipo = 0
 
-media = ((nota1+nota2+nota3+nota4)/4)
+def entrada():
+    global n1, n2, n3, n4
+    n1= float(input("Digite a nota do primeito bimestre do aluno: ")) 
+    n2= float(input("Digite a nota do segundo bimestre do aluno: ")) 
+    n3 = float(input("Digite a nota do terceiro bimestre do aluno: ")) 
+    n4 = float(input("Digite a nota do quarto bimestre do aluno: "))
 
-print("A média aritmética das notas bimestrais do aluno é igual a: ", media)
+def processamento():
+    global n1, n2, n3, n4, media, tipo
+    media = ((n1+n2+n3+n4)/4)
 
-if media >= 6:
-    print("APROVADO")
-elif media >= 3 and media <= 6:
-    print("EXAME")
-else:
-    print("RETIDO")
+    if media >= 6:
+        tipo = 1 #Aprovado
+    elif media >= 3:
+        tipo = 2 #Exame
+    else: 
+        tipo = 3 #Retido
+
+def saida():
+    global media, tipo
+    print("A média aritmética das notas bimestrais do aluno é igual a: ", media)
+
+    if tipo == 1:
+        print("APROVADO")
+    elif tipo == 2:
+        print('EXAME')
+    else:
+        print('RETIDO')
+    
+def main():
+    entrada()
+    processamento()
+    saida()
+
+main()

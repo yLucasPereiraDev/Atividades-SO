@@ -1,18 +1,38 @@
-h1 = int(input("Digite a hora inicial: "))
-m1 = int(input("Digite os minutos iniciais: "))
+h1 = 0
+m1 = 0
+h2 = 0
+m2 = 0
+dur_h = 0
+dur_m = 0
 
-h2 = int(input("Digite a hora final: "))
-m2 = int(input("Digite os minutos finais: "))
+def entrada():
+    global h1, m1, h2, m2
+    h1 = int(input("Hora inicial: "))
+    m1 = int(input("Minuto inicial: "))
+    h2 = int(input("Hora final: "))
+    m2 = int(input("Minuto final: "))
 
-inicio = (h1 * 60 + m1)
-fim = (h2 * 60 + m2)
+def processamento():
+    global h1, m1, h2, m2, dur_h, dur_m
 
-if (fim < inicio):
-    fim = (fim + 24 * 60)
+    inicio = h1 * 60 + m1
+    fim = h2 * 60 + m2
 
-duracao = fim - inicio
+    if fim < inicio:
+        fim += 24 * 60
 
-horas = duracao // 60
-minutos = duracao % 60
+    duracao = fim - inicio
 
-print(f"O jogo durou {horas} horas e {minutos} minutos")
+    dur_h = duracao // 60
+    dur_m = duracao % 60
+
+def saida():
+    global dur_h, dur_m
+    print(f"Duração do jogo: {dur_h} horas e {dur_m} minutos")
+
+def main():
+    entrada()
+    processamento()
+    saida()
+
+main()
